@@ -1,0 +1,48 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fanout
+  labels:
+    app: fanout
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fanout
+  template:
+    metadata:
+      labels:
+        app: fanout
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: fanout
+        image: github.com/yolocs/proker/cmd/fanout
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
+        - name: PROJECT
+          value: cshou-playground
+        - name: TOPIC
+          value: fanout-queue
+        - name: SUBSCRIPTION
+          value: fanout-sub
+        - name: LISTENERS_CONFIG
+          value: /var/run/proker/listeners2.json
+        - name: PURGATORY
+          value: purgatory-queue
+        volumeMounts:
+          - name: listeners-cfg
+            mountPath: /var/run/proker
+            readOnly: true
+          - name: google-cloud-key
+            mountPath: /var/secrets/google
+      volumes:
+        - name: listeners-cfg
+          configMap:
+            name: listeners-cfg
+        - name: google-cloud-key
+          secret:
+            secretName: google-cloud-key

@@ -15,56 +15,59 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller
-  namespace: knative-samples
+  name: proker-controller
+  namespace: knative-eventing
   labels:
     samples.knative.dev/release: devel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: controller
+      app: proker-controller
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
       labels:
-        app: controller
+        app: proker-controller
         samples.knative.dev/release: devel
     spec:
-      serviceAccountName: controller
+      serviceAccountName: proker-controller
       containers:
-      - name: controller
+      - name: proker-controller
         # This is the Go import path for the binary that is containerized
         # and substituted here.
-        image: knative.dev/sample-controller/cmd/controller
+        image: github.com/yolocs/proker/cmd/proker-controller
         resources:
           # Request 2x what we saw running e2e
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 200m
+            memory: 500Mi
           # Limit to 10x the request (20x the observed peak during e2e)
           limits:
             cpu: 1000m
             memory: 1000Mi
-        ports:
-        - name: metrics
-          containerPort: 9090
         volumeMounts:
-        - name: config-logging
-          mountPath: /etc/config-logging
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
         env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
         - name: SYSTEM_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        - name: CONFIG_LOGGING_NAME
-          value: config-logging
-        - name: CONFIG_OBSERVABILITY_NAME
-          value: config-observability
+        - name: FANOUT_IMAGE
+          value: github.com/yolocs/proker/cmd/fanout
+        - name: INGRESS_IMAGE
+          value: github.com/yolocs/proker/cmd/ingress
+        - name: BROKER_CLASS
+          value: proker
+        - name: PROJECT
+          value: cshou-playground
         - name: METRICS_DOMAIN
-          value: knative.dev/samples
+          value: knative.dev/eventing
       volumes:
-        - name: config-logging
-          configMap:
-            name: config-logging
+      - name: google-cloud-key
+        secret:
+          secretName: google-cloud-key

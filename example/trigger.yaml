@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-0
+  labels:
+    app: hello-0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-0
+  template:
+    metadata:
+      labels:
+        app: hello-0
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-0
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-0
+spec:
+  selector:
+    app: hello-0
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-0
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-0

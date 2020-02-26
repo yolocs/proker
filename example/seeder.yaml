@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seeder
+  labels:
+    app: seeder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seeder
+  template:
+    metadata:
+      labels:
+        app: seeder
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: seeder
+        image: github.com/yolocs/proker/cmd/seeder
+        env:
+        - name: TARGET
+          value: http://proker-broker.proker1.svc.cluster.local
+        - name: INTERVAL
+          value: "2"

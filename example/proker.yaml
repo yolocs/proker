@@ -1,0 +1,7 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Broker
+metadata:
+  name: proker
+  annotations:
+    eventing.knative.dev/broker.class: proker
+spec:

@@ -1,0 +1,5400 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-0
+  labels:
+    app: hello-0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-0
+  template:
+    metadata:
+      labels:
+        app: hello-0
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-0
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-0
+spec:
+  selector:
+    app: hello-0
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-0
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-1
+  labels:
+    app: hello-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-1
+  template:
+    metadata:
+      labels:
+        app: hello-1
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-1
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-1
+spec:
+  selector:
+    app: hello-1
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-1
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-2
+  labels:
+    app: hello-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-2
+  template:
+    metadata:
+      labels:
+        app: hello-2
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-2
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-2
+spec:
+  selector:
+    app: hello-2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-2
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-3
+  labels:
+    app: hello-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-3
+  template:
+    metadata:
+      labels:
+        app: hello-3
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-3
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-3
+spec:
+  selector:
+    app: hello-3
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-3
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-4
+  labels:
+    app: hello-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-4
+  template:
+    metadata:
+      labels:
+        app: hello-4
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-4
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-4
+spec:
+  selector:
+    app: hello-4
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-4
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-5
+  labels:
+    app: hello-5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-5
+  template:
+    metadata:
+      labels:
+        app: hello-5
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-5
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-5
+spec:
+  selector:
+    app: hello-5
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-5
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-6
+  labels:
+    app: hello-6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-6
+  template:
+    metadata:
+      labels:
+        app: hello-6
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-6
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-6
+spec:
+  selector:
+    app: hello-6
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-6
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-6
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-7
+  labels:
+    app: hello-7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-7
+  template:
+    metadata:
+      labels:
+        app: hello-7
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-7
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-7
+spec:
+  selector:
+    app: hello-7
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-7
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-7
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-8
+  labels:
+    app: hello-8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-8
+  template:
+    metadata:
+      labels:
+        app: hello-8
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-8
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-8
+spec:
+  selector:
+    app: hello-8
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-8
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-8
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-9
+  labels:
+    app: hello-9
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-9
+  template:
+    metadata:
+      labels:
+        app: hello-9
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-9
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-9
+spec:
+  selector:
+    app: hello-9
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-9
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-9
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-10
+  labels:
+    app: hello-10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-10
+  template:
+    metadata:
+      labels:
+        app: hello-10
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-10
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-10
+spec:
+  selector:
+    app: hello-10
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-10
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-11
+  labels:
+    app: hello-11
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-11
+  template:
+    metadata:
+      labels:
+        app: hello-11
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-11
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-11
+spec:
+  selector:
+    app: hello-11
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-11
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-11
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-12
+  labels:
+    app: hello-12
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-12
+  template:
+    metadata:
+      labels:
+        app: hello-12
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-12
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-12
+spec:
+  selector:
+    app: hello-12
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-12
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-12
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-13
+  labels:
+    app: hello-13
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-13
+  template:
+    metadata:
+      labels:
+        app: hello-13
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-13
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-13
+spec:
+  selector:
+    app: hello-13
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-13
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-13
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-14
+  labels:
+    app: hello-14
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-14
+  template:
+    metadata:
+      labels:
+        app: hello-14
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-14
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-14
+spec:
+  selector:
+    app: hello-14
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-14
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-14
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-15
+  labels:
+    app: hello-15
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-15
+  template:
+    metadata:
+      labels:
+        app: hello-15
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-15
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-15
+spec:
+  selector:
+    app: hello-15
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-15
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-15
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-16
+  labels:
+    app: hello-16
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-16
+  template:
+    metadata:
+      labels:
+        app: hello-16
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-16
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-16
+spec:
+  selector:
+    app: hello-16
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-16
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-16
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-17
+  labels:
+    app: hello-17
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-17
+  template:
+    metadata:
+      labels:
+        app: hello-17
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-17
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-17
+spec:
+  selector:
+    app: hello-17
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-17
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-17
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-18
+  labels:
+    app: hello-18
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-18
+  template:
+    metadata:
+      labels:
+        app: hello-18
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-18
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-18
+spec:
+  selector:
+    app: hello-18
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-18
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-18
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-19
+  labels:
+    app: hello-19
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-19
+  template:
+    metadata:
+      labels:
+        app: hello-19
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-19
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-19
+spec:
+  selector:
+    app: hello-19
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-19
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-19
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-20
+  labels:
+    app: hello-20
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-20
+  template:
+    metadata:
+      labels:
+        app: hello-20
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-20
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-20
+spec:
+  selector:
+    app: hello-20
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-20
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-20
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-21
+  labels:
+    app: hello-21
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-21
+  template:
+    metadata:
+      labels:
+        app: hello-21
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-21
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-21
+spec:
+  selector:
+    app: hello-21
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-21
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-21
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-22
+  labels:
+    app: hello-22
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-22
+  template:
+    metadata:
+      labels:
+        app: hello-22
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-22
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-22
+spec:
+  selector:
+    app: hello-22
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-22
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-22
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-23
+  labels:
+    app: hello-23
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-23
+  template:
+    metadata:
+      labels:
+        app: hello-23
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-23
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-23
+spec:
+  selector:
+    app: hello-23
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-23
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-23
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-24
+  labels:
+    app: hello-24
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-24
+  template:
+    metadata:
+      labels:
+        app: hello-24
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-24
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-24
+spec:
+  selector:
+    app: hello-24
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-24
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-24
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-25
+  labels:
+    app: hello-25
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-25
+  template:
+    metadata:
+      labels:
+        app: hello-25
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-25
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-25
+spec:
+  selector:
+    app: hello-25
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-25
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-25
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-26
+  labels:
+    app: hello-26
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-26
+  template:
+    metadata:
+      labels:
+        app: hello-26
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-26
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-26
+spec:
+  selector:
+    app: hello-26
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-26
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-26
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-27
+  labels:
+    app: hello-27
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-27
+  template:
+    metadata:
+      labels:
+        app: hello-27
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-27
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-27
+spec:
+  selector:
+    app: hello-27
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-27
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-27
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-28
+  labels:
+    app: hello-28
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-28
+  template:
+    metadata:
+      labels:
+        app: hello-28
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-28
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-28
+spec:
+  selector:
+    app: hello-28
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-28
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-28
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-29
+  labels:
+    app: hello-29
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-29
+  template:
+    metadata:
+      labels:
+        app: hello-29
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-29
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-29
+spec:
+  selector:
+    app: hello-29
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-29
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-29
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-30
+  labels:
+    app: hello-30
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-30
+  template:
+    metadata:
+      labels:
+        app: hello-30
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-30
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-30
+spec:
+  selector:
+    app: hello-30
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-30
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-30
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-31
+  labels:
+    app: hello-31
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-31
+  template:
+    metadata:
+      labels:
+        app: hello-31
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-31
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-31
+spec:
+  selector:
+    app: hello-31
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-31
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-31
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-32
+  labels:
+    app: hello-32
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-32
+  template:
+    metadata:
+      labels:
+        app: hello-32
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-32
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-32
+spec:
+  selector:
+    app: hello-32
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-32
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-32
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-33
+  labels:
+    app: hello-33
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-33
+  template:
+    metadata:
+      labels:
+        app: hello-33
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-33
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-33
+spec:
+  selector:
+    app: hello-33
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-33
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-33
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-34
+  labels:
+    app: hello-34
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-34
+  template:
+    metadata:
+      labels:
+        app: hello-34
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-34
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-34
+spec:
+  selector:
+    app: hello-34
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-34
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-34
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-35
+  labels:
+    app: hello-35
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-35
+  template:
+    metadata:
+      labels:
+        app: hello-35
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-35
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-35
+spec:
+  selector:
+    app: hello-35
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-35
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-35
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-36
+  labels:
+    app: hello-36
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-36
+  template:
+    metadata:
+      labels:
+        app: hello-36
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-36
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-36
+spec:
+  selector:
+    app: hello-36
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-36
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-36
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-37
+  labels:
+    app: hello-37
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-37
+  template:
+    metadata:
+      labels:
+        app: hello-37
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-37
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-37
+spec:
+  selector:
+    app: hello-37
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-37
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-37
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-38
+  labels:
+    app: hello-38
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-38
+  template:
+    metadata:
+      labels:
+        app: hello-38
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-38
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-38
+spec:
+  selector:
+    app: hello-38
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-38
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-38
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-39
+  labels:
+    app: hello-39
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-39
+  template:
+    metadata:
+      labels:
+        app: hello-39
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-39
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-39
+spec:
+  selector:
+    app: hello-39
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-39
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-39
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-40
+  labels:
+    app: hello-40
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-40
+  template:
+    metadata:
+      labels:
+        app: hello-40
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-40
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-40
+spec:
+  selector:
+    app: hello-40
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-40
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-40
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-41
+  labels:
+    app: hello-41
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-41
+  template:
+    metadata:
+      labels:
+        app: hello-41
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-41
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-41
+spec:
+  selector:
+    app: hello-41
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-41
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-41
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-42
+  labels:
+    app: hello-42
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-42
+  template:
+    metadata:
+      labels:
+        app: hello-42
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-42
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-42
+spec:
+  selector:
+    app: hello-42
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-42
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-42
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-43
+  labels:
+    app: hello-43
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-43
+  template:
+    metadata:
+      labels:
+        app: hello-43
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-43
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-43
+spec:
+  selector:
+    app: hello-43
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-43
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-43
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-44
+  labels:
+    app: hello-44
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-44
+  template:
+    metadata:
+      labels:
+        app: hello-44
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-44
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-44
+spec:
+  selector:
+    app: hello-44
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-44
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-44
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-45
+  labels:
+    app: hello-45
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-45
+  template:
+    metadata:
+      labels:
+        app: hello-45
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-45
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-45
+spec:
+  selector:
+    app: hello-45
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-45
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-45
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-46
+  labels:
+    app: hello-46
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-46
+  template:
+    metadata:
+      labels:
+        app: hello-46
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-46
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-46
+spec:
+  selector:
+    app: hello-46
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-46
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-46
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-47
+  labels:
+    app: hello-47
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-47
+  template:
+    metadata:
+      labels:
+        app: hello-47
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-47
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-47
+spec:
+  selector:
+    app: hello-47
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-47
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-47
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-48
+  labels:
+    app: hello-48
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-48
+  template:
+    metadata:
+      labels:
+        app: hello-48
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-48
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-48
+spec:
+  selector:
+    app: hello-48
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-48
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-48
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-49
+  labels:
+    app: hello-49
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-49
+  template:
+    metadata:
+      labels:
+        app: hello-49
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-49
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-49
+spec:
+  selector:
+    app: hello-49
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-49
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-49
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-50
+  labels:
+    app: hello-50
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-50
+  template:
+    metadata:
+      labels:
+        app: hello-50
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-50
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-50
+spec:
+  selector:
+    app: hello-50
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-50
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-50
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-51
+  labels:
+    app: hello-51
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-51
+  template:
+    metadata:
+      labels:
+        app: hello-51
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-51
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-51
+spec:
+  selector:
+    app: hello-51
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-51
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-51
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-52
+  labels:
+    app: hello-52
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-52
+  template:
+    metadata:
+      labels:
+        app: hello-52
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-52
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-52
+spec:
+  selector:
+    app: hello-52
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-52
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-52
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-53
+  labels:
+    app: hello-53
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-53
+  template:
+    metadata:
+      labels:
+        app: hello-53
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-53
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-53
+spec:
+  selector:
+    app: hello-53
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-53
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-53
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-54
+  labels:
+    app: hello-54
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-54
+  template:
+    metadata:
+      labels:
+        app: hello-54
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-54
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-54
+spec:
+  selector:
+    app: hello-54
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-54
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-54
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-55
+  labels:
+    app: hello-55
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-55
+  template:
+    metadata:
+      labels:
+        app: hello-55
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-55
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-55
+spec:
+  selector:
+    app: hello-55
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-55
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-55
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-56
+  labels:
+    app: hello-56
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-56
+  template:
+    metadata:
+      labels:
+        app: hello-56
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-56
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-56
+spec:
+  selector:
+    app: hello-56
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-56
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-56
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-57
+  labels:
+    app: hello-57
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-57
+  template:
+    metadata:
+      labels:
+        app: hello-57
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-57
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-57
+spec:
+  selector:
+    app: hello-57
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-57
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-57
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-58
+  labels:
+    app: hello-58
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-58
+  template:
+    metadata:
+      labels:
+        app: hello-58
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-58
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-58
+spec:
+  selector:
+    app: hello-58
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-58
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-58
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-59
+  labels:
+    app: hello-59
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-59
+  template:
+    metadata:
+      labels:
+        app: hello-59
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-59
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-59
+spec:
+  selector:
+    app: hello-59
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-59
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-59
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-60
+  labels:
+    app: hello-60
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-60
+  template:
+    metadata:
+      labels:
+        app: hello-60
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-60
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-60
+spec:
+  selector:
+    app: hello-60
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-60
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-60
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-61
+  labels:
+    app: hello-61
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-61
+  template:
+    metadata:
+      labels:
+        app: hello-61
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-61
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-61
+spec:
+  selector:
+    app: hello-61
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-61
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-61
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-62
+  labels:
+    app: hello-62
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-62
+  template:
+    metadata:
+      labels:
+        app: hello-62
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-62
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-62
+spec:
+  selector:
+    app: hello-62
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-62
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-62
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-63
+  labels:
+    app: hello-63
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-63
+  template:
+    metadata:
+      labels:
+        app: hello-63
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-63
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-63
+spec:
+  selector:
+    app: hello-63
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-63
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-63
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-64
+  labels:
+    app: hello-64
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-64
+  template:
+    metadata:
+      labels:
+        app: hello-64
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-64
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-64
+spec:
+  selector:
+    app: hello-64
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-64
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-64
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-65
+  labels:
+    app: hello-65
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-65
+  template:
+    metadata:
+      labels:
+        app: hello-65
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-65
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-65
+spec:
+  selector:
+    app: hello-65
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-65
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-65
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-66
+  labels:
+    app: hello-66
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-66
+  template:
+    metadata:
+      labels:
+        app: hello-66
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-66
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-66
+spec:
+  selector:
+    app: hello-66
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-66
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-66
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-67
+  labels:
+    app: hello-67
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-67
+  template:
+    metadata:
+      labels:
+        app: hello-67
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-67
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-67
+spec:
+  selector:
+    app: hello-67
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-67
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-67
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-68
+  labels:
+    app: hello-68
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-68
+  template:
+    metadata:
+      labels:
+        app: hello-68
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-68
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-68
+spec:
+  selector:
+    app: hello-68
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-68
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-68
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-69
+  labels:
+    app: hello-69
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-69
+  template:
+    metadata:
+      labels:
+        app: hello-69
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-69
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-69
+spec:
+  selector:
+    app: hello-69
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-69
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-69
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-70
+  labels:
+    app: hello-70
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-70
+  template:
+    metadata:
+      labels:
+        app: hello-70
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-70
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-70
+spec:
+  selector:
+    app: hello-70
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-70
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-70
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-71
+  labels:
+    app: hello-71
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-71
+  template:
+    metadata:
+      labels:
+        app: hello-71
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-71
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-71
+spec:
+  selector:
+    app: hello-71
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-71
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-71
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-72
+  labels:
+    app: hello-72
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-72
+  template:
+    metadata:
+      labels:
+        app: hello-72
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-72
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-72
+spec:
+  selector:
+    app: hello-72
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-72
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-72
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-73
+  labels:
+    app: hello-73
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-73
+  template:
+    metadata:
+      labels:
+        app: hello-73
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-73
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-73
+spec:
+  selector:
+    app: hello-73
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-73
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-73
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-74
+  labels:
+    app: hello-74
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-74
+  template:
+    metadata:
+      labels:
+        app: hello-74
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-74
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-74
+spec:
+  selector:
+    app: hello-74
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-74
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-74
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-75
+  labels:
+    app: hello-75
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-75
+  template:
+    metadata:
+      labels:
+        app: hello-75
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-75
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-75
+spec:
+  selector:
+    app: hello-75
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-75
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-75
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-76
+  labels:
+    app: hello-76
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-76
+  template:
+    metadata:
+      labels:
+        app: hello-76
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-76
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-76
+spec:
+  selector:
+    app: hello-76
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-76
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-76
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-77
+  labels:
+    app: hello-77
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-77
+  template:
+    metadata:
+      labels:
+        app: hello-77
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-77
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-77
+spec:
+  selector:
+    app: hello-77
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-77
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-77
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-78
+  labels:
+    app: hello-78
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-78
+  template:
+    metadata:
+      labels:
+        app: hello-78
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-78
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-78
+spec:
+  selector:
+    app: hello-78
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-78
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-78
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-79
+  labels:
+    app: hello-79
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-79
+  template:
+    metadata:
+      labels:
+        app: hello-79
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-79
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-79
+spec:
+  selector:
+    app: hello-79
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-79
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-79
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-80
+  labels:
+    app: hello-80
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-80
+  template:
+    metadata:
+      labels:
+        app: hello-80
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-80
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-80
+spec:
+  selector:
+    app: hello-80
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-80
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-81
+  labels:
+    app: hello-81
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-81
+  template:
+    metadata:
+      labels:
+        app: hello-81
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-81
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-81
+spec:
+  selector:
+    app: hello-81
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-81
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-81
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-82
+  labels:
+    app: hello-82
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-82
+  template:
+    metadata:
+      labels:
+        app: hello-82
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-82
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-82
+spec:
+  selector:
+    app: hello-82
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-82
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-82
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-83
+  labels:
+    app: hello-83
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-83
+  template:
+    metadata:
+      labels:
+        app: hello-83
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-83
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-83
+spec:
+  selector:
+    app: hello-83
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-83
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-83
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-84
+  labels:
+    app: hello-84
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-84
+  template:
+    metadata:
+      labels:
+        app: hello-84
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-84
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-84
+spec:
+  selector:
+    app: hello-84
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-84
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-84
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-85
+  labels:
+    app: hello-85
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-85
+  template:
+    metadata:
+      labels:
+        app: hello-85
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-85
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-85
+spec:
+  selector:
+    app: hello-85
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-85
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-85
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-86
+  labels:
+    app: hello-86
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-86
+  template:
+    metadata:
+      labels:
+        app: hello-86
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-86
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-86
+spec:
+  selector:
+    app: hello-86
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-86
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-86
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-87
+  labels:
+    app: hello-87
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-87
+  template:
+    metadata:
+      labels:
+        app: hello-87
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-87
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-87
+spec:
+  selector:
+    app: hello-87
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-87
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-87
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-88
+  labels:
+    app: hello-88
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-88
+  template:
+    metadata:
+      labels:
+        app: hello-88
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-88
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-88
+spec:
+  selector:
+    app: hello-88
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-88
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-88
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-89
+  labels:
+    app: hello-89
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-89
+  template:
+    metadata:
+      labels:
+        app: hello-89
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-89
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-89
+spec:
+  selector:
+    app: hello-89
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-89
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-89
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-90
+  labels:
+    app: hello-90
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-90
+  template:
+    metadata:
+      labels:
+        app: hello-90
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-90
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-90
+spec:
+  selector:
+    app: hello-90
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-90
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-90
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-91
+  labels:
+    app: hello-91
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-91
+  template:
+    metadata:
+      labels:
+        app: hello-91
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-91
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-91
+spec:
+  selector:
+    app: hello-91
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-91
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-91
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-92
+  labels:
+    app: hello-92
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-92
+  template:
+    metadata:
+      labels:
+        app: hello-92
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-92
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-92
+spec:
+  selector:
+    app: hello-92
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-92
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-92
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-93
+  labels:
+    app: hello-93
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-93
+  template:
+    metadata:
+      labels:
+        app: hello-93
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-93
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-93
+spec:
+  selector:
+    app: hello-93
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-93
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-93
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-94
+  labels:
+    app: hello-94
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-94
+  template:
+    metadata:
+      labels:
+        app: hello-94
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-94
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-94
+spec:
+  selector:
+    app: hello-94
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-94
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-94
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-95
+  labels:
+    app: hello-95
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-95
+  template:
+    metadata:
+      labels:
+        app: hello-95
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-95
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-95
+spec:
+  selector:
+    app: hello-95
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-95
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-95
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-96
+  labels:
+    app: hello-96
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-96
+  template:
+    metadata:
+      labels:
+        app: hello-96
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-96
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-96
+spec:
+  selector:
+    app: hello-96
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-96
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-96
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-97
+  labels:
+    app: hello-97
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-97
+  template:
+    metadata:
+      labels:
+        app: hello-97
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-97
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-97
+spec:
+  selector:
+    app: hello-97
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-97
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-97
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-98
+  labels:
+    app: hello-98
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-98
+  template:
+    metadata:
+      labels:
+        app: hello-98
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-98
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-98
+spec:
+  selector:
+    app: hello-98
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-98
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-98
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-99
+  labels:
+    app: hello-99
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-99
+  template:
+    metadata:
+      labels:
+        app: hello-99
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: hello-99
+        image: github.com/yolocs/knative-policy-binding/cmd/echo
+        ports:
+        - containerPort: 5678
+          # name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-99
+spec:
+  selector:
+    app: hello-99
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+      name: http
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: hello-99
+spec:
+  broker:
+    proker
+  filter:
+    attributes:
+      type: greeting
+  subscriber:
+    ref:
+     apiVersion: v1
+     kind: Service
+     name: hello-99
+---
